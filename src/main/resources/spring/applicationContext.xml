@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mytag="http://www.xsdtemplate/schema/mytag"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.xsdtemplate/schema/mytag
+       http://www.xsdtemplate/schema/mytag.xsd
+       ">
+    <!--<mytag:user id="users" name="bobo" addr="oooo" age="18" gender="male"/>-->
+
+    <bean class="com.xsd.template.schema.User">
+        <property name="name" value="bobo"/>
+        <property name="addr" value="home"/>
+        <property name="age" value="12"/>
+        <property name="gender" value="ma"/>
+    </bean>
+</beans>

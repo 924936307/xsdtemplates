@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.xsdtemplate/schema/mytag"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.xsdtemplate/schema/mytag"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.springframework.org/schema/beans" />
+
+    <!-- xsd:element 表示定义标签 -->
+    <xsd:element name="user">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <!-- 继承定义 从namespace="http://www.springframework.org/schema/beans" -->
+                <xsd:extension base="beans:identifiedType">
+                    <!-- 定义name属性，string类型，必须 -->
+                    <xsd:attribute name="name" type="xsd:string" use="required" />
+                    <!-- 定义age属性，无符号int类型，必须 -->
+                    <xsd:attribute name="age" type="xsd:unsignedInt" use="required" />
+                    <!-- 定义addr属性，string类型，必须 -->
+                    <xsd:attribute name="addr" type="xsd:string" use="required" />
+                    <!-- 定义gender属性，枚举类型，默认值是male，可选 -->
+                    <xsd:attribute name="gender" use="optional" default="male">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="male" />
+                                <xsd:enumeration value="female" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
